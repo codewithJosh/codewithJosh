@@ -2,7 +2,11 @@
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=codewithjosh&margin-w=8&theme=algolia)](https://github.com/ryo-ma/github-profile-trophy)
 
+![Colorful line](https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif)
+
 [![Joshua Dacasin's Github Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=codewithJosh&theme=react-dark)](https://github.com/Ashutosh00710/github-readme-activity-graph)
+
+![Colorful line](https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif)
 
 | [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=codewithJosh&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats) | [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=codewithJosh&layout=compact&show_icons=true&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats) | [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=codewithJosh&theme=tokyonight)](https://github.com/anuraghazra/github-readme-stats)
 --| --| --|
