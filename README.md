@@ -10,9 +10,9 @@
 
 <!-- [![Joshua Dacasin's Github Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=codewithJosh&theme=react-dark)](https://github.com/Ashutosh00710/github-readme-activity-graph) -->
 
-| [![Isocalendar Full Year](https://gist.githubusercontent.com/codewithJosh/9d46e4cfd6b8756b13f4c4f8451e5878/raw/isocalendar-fullyear.svg)][4] | [![Github Metrics](https://gist.githubusercontent.com/codewithJosh/9d46e4cfd6b8756b13f4c4f8451e5878/raw/github-metrics.svg)][4] |
+| [![Isocalendar Full Year](https://gist.githubusercontent.com/codewithJosh/36130fe8089c0f5377109e87e504df9b/raw/isocalendar-fullyear.svg)][4] | [![Github Metrics](https://gist.githubusercontent.com/codewithJosh/36130fe8089c0f5377109e87e504df9b/raw/github-metrics.svg)][4] |
 | --------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| [![Wakatime](https://gist.githubusercontent.com/codewithJosh/9d46e4cfd6b8756b13f4c4f8451e5878/raw/wakatime.svg)][4]                  | [![RSS](https://gist.githubusercontent.com/codewithJosh/9d46e4cfd6b8756b13f4c4f8451e5878/raw/rss.svg)][4]               |
+| [![Wakatime](https://gist.githubusercontent.com/codewithJosh/36130fe8089c0f5377109e87e504df9b/raw/wakatime.svg)][4]                  | [![RSS](https://gist.githubusercontent.com/codewithJosh/36130fe8089c0f5377109e87e504df9b/raw/rss.svg)][4]               |
 
 ![Colorful line](https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif)
 
