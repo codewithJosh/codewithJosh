@@ -1,0 +1,158 @@
+name: Metrics
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Generate GitHub Metrics
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: github-metrics.svg
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+
+      - name: Full-year calendar
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          filename: isocalendar-fullyear.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: codewithJosh
+          base: ""
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+
+      - name: Achievements
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: codewithJosh
+          filename: achievements.svg
+          base: ""
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          plugin_achievements_threshold: X
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+
+      - name: Mildly interesting facts
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: codewithJosh
+          filename: habits-facts.svg
+          base: ""
+          plugin_habits: yes
+          plugin_habits_facts: yes
+          plugin_habits_charts: no
+          config_timezone: Asia/Manila
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+
+      - name: Recent activity charts
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: codewithJosh
+          filename: habits-charts.svg
+          base: ""
+          plugin_habits: yes
+          plugin_habits_facts: no
+          plugin_habits_charts: yes
+          config_timezone: Asia/Manila
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+
+      - name: Recent activity
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: codewithJosh
+          filename: activity.svg
+          base: ""
+          plugin_activity: yes
+          plugin_activity_limit: 5
+          plugin_activity_days: 0
+          plugin_activity_filter: issue, pr, release, fork, review, ref/create
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+
+      - name: JavaScript or TypeScript snippet of the day
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: codewithJosh
+          filename: code.svg
+          base: ""
+          plugin_code: yes
+          plugin_code_languages: javascript, typescript
+          plugin_code_load: 400
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+
+      - name: News from hackernews
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: rss.svg
+          base: ""
+          plugin_rss: yes
+          plugin_rss_source: https://news.ycombinator.com/rss
+          plugin_rss_limit: 4
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
+
+      - name: WakaTime
+        if: ${{ success() || failure() }}
+        uses: EUR-UN/metrics-community@v3.35.0-community.2
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          filename: wakatime.svg
+          base: ""
+          plugin_wakatime: yes
+          plugin_wakatime_sections: time, projects, projects-graphs, languages, languages-graphs, editors, os
+          plugin_wakatime_token: ${{ secrets.WAKATIME_TOKEN }}
+          output_action: gist
+          committer_gist: ${{ secrets.GIST }}
+          retries: 3
+          retries_delay: 30
