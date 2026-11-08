@@ -1,0 +1,46 @@
+name: Update streak stats
+
+on:
+  schedule:
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+      
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Generate streak stats
+        uses: DenverCoder1/github-readme-streak-stats@v1
+        with:
+          options: user=${{ github.repository_owner }}&theme=tokyonight&disable_animations=true
+          path: streak.svg
+
+      # Update Gist
+      - name: Update GitHub Gist
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: ${{ secrets.STREAK_STATS_GIST_ID }}
+        run: |
+          jq -n \
+            --rawfile streak streak.svg \
+            '{
+              files: {
+                "streak.svg": {content: $streak}
+              }
+            }' > payload.json
+
+          curl --fail-with-body \
+            -X PATCH \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/gists/$GIST_ID \
+            -d @payload.json
