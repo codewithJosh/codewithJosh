@@ -2,10 +2,8 @@ name: Metrics
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 16 * * *"
   workflow_dispatch:
-  push:
-    branches: ["main"]
 
 jobs:
   github-metrics:
