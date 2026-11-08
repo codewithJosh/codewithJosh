@@ -1,0 +1,84 @@
+name: Update README cards
+
+on:
+  schedule:
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: production
+
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v6
+
+      # GitHub Stats
+      - name: Generate stats card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: stats
+          options: username=${{ github.repository_owner }}&show_icons=true&theme=tokyonight
+          path: stats.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      # Top Languages
+      - name: Generate top languages card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: top-langs
+          options: username=${{ github.repository_owner }}&layout=compact&langs_count=6&theme=tokyonight
+          path: top-langs.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      # Pinned Repository
+      # - name: Generate pin card
+      #   uses: stats-organization/github-readme-stats-action@v2
+      #   with:
+      #     card: pin
+      #     options: username=stats-organization&repo=github-readme-stats&theme=tokyonight
+      #     path: pin-stats-organization-github-readme-stats.svg
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     fail_on_error: true
+
+      # WakaTime
+      - name: Generate WakaTime card
+        uses: stats-organization/github-readme-stats-action@v2
+        with:
+          card: wakatime
+          options: username=codewithJosh&layout=compact&langs_count=6&theme=tokyonight
+          path: wakatime.svg
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fail_on_error: true
+
+      # Update Gist
+      - name: Update GitHub Gist
+        env:
+          GH_TOKEN: ${{ secrets.GIST_TOKEN }}
+          GIST_ID: ${{ secrets.README_STATS_GIST_ID }}
+        run: |
+          jq -n \
+            --rawfile stats stats.svg \
+            --rawfile languages top-langs.svg \
+            --rawfile wakatime wakatime.svg \
+            '{
+              files: {
+                "stats.svg": {content: $stats},
+                "top-langs.svg": {content: $languages},
+                "wakatime.svg": {content: $wakatime}
+              }
+            }' > payload.json
+
+          curl --fail-with-body \
+            -X PATCH \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/gists/$GIST_ID \
+            -d @payload.json
