@@ -16,7 +16,7 @@
 
 ![Colorful line](https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif)
 
-| [![GitHub stats](https://github-readme-stats.vercel.app/api?username=codewithJosh&show_icons=true&theme=tokyonight)][5] | [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=codewithJosh&layout=compact&show_icons=true&theme=tokyonight)][5] | [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=codewithJosh&theme=tokyonight)][5] |
+| [![GitHub stats](https://gist.githubusercontent.com/codewithJosh/3e8f19a11fa2f7c026c0980281d1ba31/raw/stats.svg)][5] | [![Top Langs](https://gist.githubusercontent.com/codewithJosh/3e8f19a11fa2f7c026c0980281d1ba31/raw/top-langs.svg)][5] | [![GitHub Streak](https://gist.githubusercontent.com/codewithJosh/07bea1ec6c9a24a5ea4da662a6574809/raw/streak.svg)][6] |
 | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 
 [![Gmail Badge](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:dacasinjoshua23@gmail.com) &emsp;
@@ -28,4 +28,5 @@
 [2]: https://shields.io/badges/git-hub-followers
 [3]: https://shields.io/badges/git-hub-repo-stars
 [4]: https://github.com/lowlighter/metrics
-[5]: https://github.com/anuraghazra/github-readme-stats
+[5]: https://github.com/stats-organization/github-readme-stats-action
+[6]: https://git.io/streak-stats
